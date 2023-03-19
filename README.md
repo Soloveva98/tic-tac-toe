@@ -18,4 +18,4 @@
 
 ---
 #### Game:
-![](img/tic.gif)
+![](/tic.gif)
