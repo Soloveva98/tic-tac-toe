@@ -1,0 +1,150 @@
+// Файл обнуляющих стилей
+@import "nullstyle.scss";
+//ШРИФТЫ
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+$red_color: #FF4500;
+
+
+body{
+	background-color: #FAEBD7;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	font-family: Montserrat, sans-serif;
+}
+
+
+.game{
+	padding-top: 50px;
+	h1{
+		font-size: 40px;
+		text-align: center;
+		margin-bottom: 50px;
+		color: $red_color;
+	}
+	p, &__win{
+		font-size: 22px;
+		font-weight: 500;
+		margin-bottom: 30px;
+		text-transform: uppercase;
+		letter-spacing: 2px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		color: $red_color;
+	}
+	&__win{
+		font-size: 32px;
+	}
+	&__player{
+		margin-left: 20px;
+		font-weight: 500;
+		font-size: 34px;
+	}
+	button{
+		display: block;
+		margin: 0 auto 40px;
+		width: 100%;
+		max-width: 200px;
+		padding: 10px 15px;
+		border-radius: 30px;
+		border: 1px solid $red_color;
+		text-transform: uppercase;
+		letter-spacing: 2px;
+		background-color: $red_color;
+		color: #FAEBD7;
+		transition: all 0.3s ease-in-out;
+		&:hover{box-shadow: 0 0 10px rgba(0,0,0,0.5);}
+		&:active{transform: translateY(1px);background-color: #FF7F50; border-color: #FF7F50;}
+	}
+	&__cells{
+		width: 450px;
+		height: 450px;
+		margin: 0 auto;
+		position: relative;
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		grid-template-rows: repeat(3, 1fr);
+	}
+}
+
+.cell{
+	width: 150px;
+	height: 150px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 150px;
+	&:hover{
+		box-shadow: 0 0 10px rgba(0,0,0,0.5);
+		transition: box-shadow 0.3s ease-in-out;
+	}
+
+	&:nth-child(1), &:nth-child(2), &:nth-child(3), &:nth-child(4), &:nth-child(5), &:nth-child(6){
+		border-bottom: 2px solid $red_color;
+	}
+
+	&:nth-child(1), &:nth-child(4),&:nth-child(7){
+		border-right: 2px solid $red_color;
+	}
+
+	&:nth-child(3), &:nth-child(6),&:nth-child(9){
+		border-left: 2px solid $red_color;
+	}
+}
+
+.cell__x, .x{
+	color: $red_color;
+}
+
+.cell__o, .o{
+	color: #808000;
+}
+
+.line{
+	&__horizontal, &__vertical, &__diagLeft, &__diagRight{position: relative;}
+	&__horizontal,&__vertical, &__diagLeft, &__diagRight{
+		&::before{
+			content: "";
+			position: absolute;
+			background-color: #DAA520;
+			transition: all 10s ease-in-out;
+		}
+	}
+	&__horizontal{
+		&::before{
+			top: 47%;
+			left: 0;
+			width: 100%;
+			height: 10px;
+		}
+	}
+	&__vertical{
+		&::before{
+			top: 0;
+			left: 47%;
+			width: 10px;
+			height: 100%;
+		}
+	}
+	&__diagLeft{
+		&::before{
+			top: 0;
+			left: 0;
+			width: 10px;
+			height: 635px;
+			transform-origin: top left;
+			transform: rotate(-44.5deg);
+		}
+	}
+	&__diagRight{
+		&::before{
+			top: 0;
+			right: 0;
+			width: 10px;
+			height: 630px;
+			transform-origin: top right;
+			transform: rotate(44.4deg);
+		}
+	}
+}
