@@ -1,6 +1,6 @@
 # :x::o: Браузерная мини-игра "Крестики-нолики"
  
-### Ссылка на сайт: <a href="https://soloveva98.github.io/snake-game/">Крестики-нолики</a>
+### Ссылка на сайт: <a href="https://soloveva98.github.io/tic-tac-toe/">Крестики-нолики</a>
 
 #### :hammer_and_wrench: Стек технологий:
 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noreferrer">
