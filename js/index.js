@@ -8,6 +8,7 @@ const winInfo = document.querySelector('.game__win');
 const tryAgain = document.querySelector('.again');
 
 let player, click;
+let win = false;
 
 //инициализация игры
 function init() {
@@ -19,6 +20,7 @@ function init() {
 
 	player = "X";
 	click = 0;
+	win = false;
 
 	textInfo.textContent = "Ход игрока";
 	playerInfo.textContent = "X";
@@ -56,6 +58,7 @@ function checkWin() {
 		cells[c].classList.add(className);
 		game.removeEventListener("click", onClickCell);
 		hideInfo();
+		win = true;
 		winInfo.textContent = `Победил игрок ${player}`;
 		winInfo.classList.add(`${player.toLowerCase()}`);
 	};
@@ -64,6 +67,7 @@ function checkWin() {
 		cells[cell].classList.add(className);
 		game.removeEventListener("click", onClickCell);
 		hideInfo();
+		win = true;
 		winInfo.textContent = `Победил игрок ${player}`;
 		winInfo.classList.add(`${player.toLowerCase()}`);
 	};
@@ -90,13 +94,14 @@ function checkWin() {
 	};
 
 	//проверка выигрыша или ничьи
-	if (click < 9) {
+	if (click <= 9) {
 		checkPlayerWin("X");
 		checkPlayerWin("O");
-	} else if (click === 9 || click > 9) {
-		game.removeEventListener("click", onClickCell);
-		hideInfo();
-		winInfo.textContent = "Ничья";
+		if (click === 9) {
+			game.removeEventListener("click", onClickCell);
+			hideInfo();
+			if (!win) winInfo.textContent = "Ничья";
+		}
 	}
 };
 
